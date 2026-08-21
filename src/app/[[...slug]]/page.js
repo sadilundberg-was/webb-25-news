@@ -1,17 +1,19 @@
+import { redirect } from 'next/navigation';
 import { StoryblokStory } from '@storyblok/react/rsc';
-import { getStoryblokApi } from '@/lib/storyblok';
+import { getStory } from '@/lib/queries';
 
 export default async function Page({ params }) {
 	const { slug } = await params;
 
-	let fullSlug = slug ? slug.join('/') : 'home';
+	// [[...slug]] → array of segments, or undefined on `/`
+	const fullSlug = slug ? slug.join('/') : 'home';
 
-	let sbParams = {
-		version: 'draft',
-	};
+	// Config is global data for layout — not a public page.
+	if (fullSlug === 'config') {
+		redirect('/');
+	}
 
-	const storyblokApi = getStoryblokApi();
-	let { data } = await storyblokApi.get(`cdn/stories/${fullSlug}`, sbParams);
+	const story = await getStory(fullSlug);
 
-	return <StoryblokStory story={data.story} />;
+	return <StoryblokStory story={story} />;
 }

@@ -2,6 +2,17 @@ import Page from '@/components/Page';
 import Feature from '@/components/Feature';
 import Grid from '@/components/Grid';
 import Teaser from '@/components/Teaser';
+import NavLink from '@/components/NavLink';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import FeaturedArticle from '@/components/FeaturedArticle';
+import LatestNews from '@/components/LatestNews';
+import WithSidebar from '@/components/WithSidebar';
+import Popular from '@/components/Popular';
+import Categories from '@/components/Categories';
+import Newsletter from '@/components/Newsletter';
+import Article from '@/components/Article';
+import Author from '@/components/Author';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 export const getStoryblokApi = storyblokInit({
@@ -12,6 +23,18 @@ export const getStoryblokApi = storyblokInit({
 		feature: Feature,
 		grid: Grid,
 		teaser: Teaser,
+		'nav-item': NavLink,
+		header: Header,
+		footer: Footer,
+		featured_article: FeaturedArticle,
+		latest_news: LatestNews,
+		with_sidebar: WithSidebar,
+		popular: Popular,
+		popular_item: () => null,
+		categories: Categories,
+		newsletter: Newsletter,
+		article: Article,
+		author: Author,
 	},
 	apiOptions: {
 		/** Set the correct region for your space. Learn more: https://www.storyblok.com/docs/packages/storyblok-js#example-region-parameter */
