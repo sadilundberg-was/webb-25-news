@@ -1,10 +1,9 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 import Link from 'next/link';
 import { getDatasourceEntries } from '@/lib/queries';
-import { CategoryIcon } from './Icons';
+import { CategoryIcon } from '@/ui/icons';
 import { cn } from '@/lib/cn';
 
-/** Map datasource `value` (e.g. TEKNIK) → icon key used in Icons.jsx */
 const CATEGORY_ICON_BY_VALUE = {
 	SVERIGE: 'building',
 	VÄRLDEN: 'globe',
@@ -37,7 +36,7 @@ export default async function Categories({ blok }) {
 			<h2 className="mb-4 text-[1.15rem] font-extrabold tracking-[-0.02em]">
 				{blok.title || 'Kategorier'}
 			</h2>
-			<ul className="m-0 flex list-none flex-col gap-3.5 p-0">
+			<ul className="m-0 flex list-none flex-wrap gap-3.5 p-0">
 				{entries.map((entry) => {
 					const icon =
 						CATEGORY_ICON_BY_VALUE[entry.value] ||
@@ -46,10 +45,10 @@ export default async function Categories({ blok }) {
 					const href = `/kategori/${(entry.value || '').toLowerCase()}`;
 
 					return (
-						<li key={entry.id || entry.value}>
+						<li key={entry.id || entry.value} className="min-w-[10rem] flex-1">
 							<Link
 								href={href}
-								className="flex items-center gap-3 py-1 text-[0.95rem] font-semibold transition-colors duration-150 hover:text-primary"
+								className="flex items-center gap-3 rounded-sm bg-gray-100 p-3 text-[0.95rem] font-semibold transition-colors duration-150 hover:text-primary"
 							>
 								<span
 									className={cn(
@@ -59,7 +58,7 @@ export default async function Categories({ blok }) {
 								>
 									<CategoryIcon name={icon} className="size-4" />
 								</span>
-								<span className="flex-1">{entry.name}</span>
+								<span className="min-w-0 flex-1">{entry.name}</span>
 								<span className="text-[1.1rem] font-normal text-muted" aria-hidden="true">
 									›
 								</span>

@@ -1,6 +1,6 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 import Link from 'next/link';
-import { PopularIcon } from './Icons';
+import { PopularIcon } from '@/ui/icons';
 import { cn } from '@/lib/cn';
 
 function linkHref(link) {
@@ -25,13 +25,13 @@ export default function Popular({ blok }) {
 			<h2 className="mb-4 text-[1.15rem] font-extrabold tracking-[-0.02em]">
 				{blok.title || 'Populärt'}
 			</h2>
-			<ul className="m-0 flex list-none flex-col gap-3.5 p-0">
+			<ul className="m-0 flex list-none flex-wrap gap-3.5 p-0">
 				{items.map((item) => {
 					const icon = item.icon || 'flame';
 					return (
 						<li
 							key={item._uid}
-							className="flex items-start gap-3"
+							className="flex min-w-[10rem] flex-1 items-start gap-3 rounded-sm bg-gray-100 p-3"
 							{...storyblokEditable(item)}
 						>
 							<span

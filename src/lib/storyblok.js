@@ -5,14 +5,14 @@ import Teaser from '@/components/Teaser';
 import NavLink from '@/components/NavLink';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import FeaturedArticle from '@/components/FeaturedArticle';
-import LatestNews from '@/components/LatestNews';
-import WithSidebar from '@/components/WithSidebar';
+import FeaturedArticle from '@/components/Article/FeaturedArticle';
+import LatestNews from '@/components/Article/LatestNews';
+import SplitLayout from '@/components/SplitLayout';
 import Popular from '@/components/Popular';
 import Categories from '@/components/Categories';
 import Newsletter from '@/components/Newsletter';
-import Article from '@/components/Article';
-import Author from '@/components/Author';
+import Article from '@/components/Article/Article';
+import Author from '@/components/Article/Author';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 export const getStoryblokApi = storyblokInit({
@@ -23,12 +23,12 @@ export const getStoryblokApi = storyblokInit({
 		feature: Feature,
 		grid: Grid,
 		teaser: Teaser,
-		'nav-item': NavLink,
+		nav_link: NavLink,
 		header: Header,
 		footer: Footer,
 		featured_article: FeaturedArticle,
 		latest_news: LatestNews,
-		with_sidebar: WithSidebar,
+		split_layout: SplitLayout,
 		popular: Popular,
 		popular_item: () => null,
 		categories: Categories,

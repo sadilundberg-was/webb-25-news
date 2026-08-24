@@ -3,7 +3,7 @@ import {
 	StoryblokServerComponent,
 } from '@storyblok/react/rsc';
 
-export default function WithSidebar({ blok }) {
+export default function SplitLayout({ blok }) {
 	return (
 		<div
 			className="grid grid-cols-[1fr_300px] items-start gap-12 pb-10 max-[900px]:grid-cols-1 max-[900px]:gap-10"

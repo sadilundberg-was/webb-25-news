@@ -1,8 +1,9 @@
 'use client';
 
 import { storyblokEditable } from '@storyblok/react';
-import { IconMail } from './Icons';
-import { Button, Input } from '@/ui';
+import { IconMail } from '@/ui/icons';
+import { Button } from '@/ui/button';
+import { Input } from '@/ui/input';
 
 export default function Newsletter({ blok }) {
 	function handleSubmit(e) {

@@ -15,11 +15,10 @@ export default async function RootLayout({ children }) {
 
 	try {
 		const story = await getConfigStory();
-		const config = story.content;
-		headerBlok = config.header?.[0];
-		footerBlok = config.footer?.[0];
+		headerBlok = story.content?.header?.[0];
+		footerBlok = story.content?.footer?.[0];
 	} catch {
-		// Config-story saknas ännu — sidan renderas utan header/footer.
+		console.error('Config story not found');
 	}
 
 	return (

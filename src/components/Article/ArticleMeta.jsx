@@ -1,6 +1,6 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
-import { IconCalendar, IconComment, IconUser } from './Icons';
-import { Tag } from '@/ui';
+import { IconCalendar, IconComment, IconUser } from '@/ui/icons';
+import { Tag } from '@/ui/tag';
 import { formatDate } from '@/lib/utils';
 import { cn } from '@/lib/cn';
 
