@@ -1,6 +1,7 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 import Link from 'next/link';
 import { PopularIcon } from './Icons';
+import { cn } from '@/lib/cn';
 
 function linkHref(link) {
 	if (!link) return '#';
@@ -10,25 +11,45 @@ function linkHref(link) {
 	return `/${cached}`;
 }
 
+const ICON_BG = {
+	flame: 'bg-red-500',
+	chart: 'bg-green-500',
+	globe: 'bg-violet-500',
+};
+
 export default function Popular({ blok }) {
 	const items = blok.items || [];
 
 	return (
-		<section className="sidebar-block" {...storyblokEditable(blok)}>
-			<h2 className="sidebar-block__title">{blok.title || 'Populärt'}</h2>
-			<ul className="popular-list">
-				{items.map((item) => (
-					<li key={item._uid} className="popular-item" {...storyblokEditable(item)}>
-						<span
-							className={`popular-item__icon popular-item__icon--${item.icon || 'flame'}`}
+		<section {...storyblokEditable(blok)}>
+			<h2 className="mb-4 text-[1.15rem] font-extrabold tracking-[-0.02em]">
+				{blok.title || 'Populärt'}
+			</h2>
+			<ul className="m-0 flex list-none flex-col gap-3.5 p-0">
+				{items.map((item) => {
+					const icon = item.icon || 'flame';
+					return (
+						<li
+							key={item._uid}
+							className="flex items-start gap-3"
+							{...storyblokEditable(item)}
 						>
-							<PopularIcon name={item.icon || 'flame'} />
-						</span>
-						<p className="popular-item__title">
-							<Link href={linkHref(item.link)}>{item.title}</Link>
-						</p>
-					</li>
-				))}
+							<span
+								className={cn(
+									'flex size-9 shrink-0 items-center justify-center rounded-[10px] text-white',
+									ICON_BG[icon] ?? ICON_BG.flame,
+								)}
+							>
+								<PopularIcon name={icon} className="size-[18px]" />
+							</span>
+							<p className="m-0 text-[0.9rem] font-semibold leading-[1.4]">
+								<Link href={linkHref(item.link)} className="hover:text-primary">
+									{item.title}
+								</Link>
+							</p>
+						</li>
+					);
+				})}
 			</ul>
 		</section>
 	);

@@ -1,25 +1,37 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { IconCalendar, IconComment, IconUser } from './Icons';
+import { Tag } from '@/ui';
 import { formatDate } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 
-export default function ArticleMeta({ date, authorName, commentsCount, className = '' }) {
+export default function ArticleMeta({
+	date,
+	authorName,
+	commentsCount,
+	className = '',
+}) {
 	return (
-		<div className={`meta ${className}`.trim()}>
+		<div
+			className={cn(
+				'my-3 flex flex-wrap items-center gap-4 text-[0.85rem] text-muted',
+				className,
+			)}
+		>
 			{date && (
-				<span className="meta__item">
-					<IconCalendar />
+				<span className="inline-flex items-center gap-1.5">
+					<IconCalendar className="size-4 shrink-0 opacity-70" />
 					{formatDate(date)}
 				</span>
 			)}
 			{authorName && (
-				<span className="meta__item">
-					<IconUser />
+				<span className="inline-flex items-center gap-1.5">
+					<IconUser className="size-4 shrink-0 opacity-70" />
 					{authorName}
 				</span>
 			)}
 			{commentsCount != null && commentsCount !== '' && (
-				<span className="meta__item">
-					<IconComment />
+				<span className="inline-flex items-center gap-1.5">
+					<IconComment className="size-4 shrink-0 opacity-70" />
 					{commentsCount} kommentarer
 				</span>
 			)}
@@ -30,9 +42,7 @@ export default function ArticleMeta({ date, authorName, commentsCount, className
 export function CategoryTag({ category, editable }) {
 	if (!category) return null;
 	return (
-		<span className="tag" {...(editable || {})}>
-			{category}
-		</span>
+		<Tag {...(editable || {})}>{category}</Tag>
 	);
 }
 

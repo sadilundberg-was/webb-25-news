@@ -26,9 +26,11 @@ export default async function RootLayout({ children }) {
 		<StoryblokProvider>
 			<html lang="sv">
 				<body>
-					{headerBlok && <Header blok={headerBlok} />}
-					{children}
-					{footerBlok && <Footer blok={footerBlok} />}
+					<div className="flex min-h-screen flex-col">
+						{headerBlok && <Header blok={headerBlok} />}
+						{children}
+						{footerBlok && <Footer blok={footerBlok} />}
+					</div>
 				</body>
 			</html>
 		</StoryblokProvider>

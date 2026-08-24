@@ -2,8 +2,9 @@ import { storyblokEditable } from '@storyblok/react/rsc';
 import Link from 'next/link';
 import { getDatasourceEntries } from '@/lib/queries';
 import { CategoryIcon } from './Icons';
+import { cn } from '@/lib/cn';
 
-/** Map datasource `value` (e.g. TEKNIK) → icon key used in CSS / Icons.jsx */
+/** Map datasource `value` (e.g. TEKNIK) → icon key used in Icons.jsx */
 const CATEGORY_ICON_BY_VALUE = {
 	SVERIGE: 'building',
 	VÄRLDEN: 'globe',
@@ -11,6 +12,14 @@ const CATEGORY_ICON_BY_VALUE = {
 	EKONOMI: 'chart',
 	TEKNIK: 'gear',
 	KULTUR: 'paw',
+};
+
+const ICON_BG = {
+	building: 'bg-blue-500',
+	globe: 'bg-green-500',
+	chart: 'bg-amber-500',
+	gear: 'bg-violet-500',
+	paw: 'bg-pink-500',
 };
 
 export default async function Categories({ blok }) {
@@ -24,9 +33,11 @@ export default async function Categories({ blok }) {
 	}
 
 	return (
-		<section className="sidebar-block" {...storyblokEditable(blok)}>
-			<h2 className="sidebar-block__title">{blok.title || 'Kategorier'}</h2>
-			<ul className="category-list">
+		<section {...storyblokEditable(blok)}>
+			<h2 className="mb-4 text-[1.15rem] font-extrabold tracking-[-0.02em]">
+				{blok.title || 'Kategorier'}
+			</h2>
+			<ul className="m-0 flex list-none flex-col gap-3.5 p-0">
 				{entries.map((entry) => {
 					const icon =
 						CATEGORY_ICON_BY_VALUE[entry.value] ||
@@ -35,13 +46,21 @@ export default async function Categories({ blok }) {
 					const href = `/kategori/${(entry.value || '').toLowerCase()}`;
 
 					return (
-						<li key={entry.id || entry.value} className="category-item">
-							<Link href={href}>
-								<span className={`category-item__icon category-item__icon--${icon}`}>
-									<CategoryIcon name={icon} />
+						<li key={entry.id || entry.value}>
+							<Link
+								href={href}
+								className="flex items-center gap-3 py-1 text-[0.95rem] font-semibold transition-colors duration-150 hover:text-primary"
+							>
+								<span
+									className={cn(
+										'flex size-9 shrink-0 items-center justify-center rounded-full text-white',
+										ICON_BG[icon] ?? ICON_BG.building,
+									)}
+								>
+									<CategoryIcon name={icon} className="size-4" />
 								</span>
-								<span className="category-item__label">{entry.name}</span>
-								<span className="category-item__chevron" aria-hidden="true">
+								<span className="flex-1">{entry.name}</span>
+								<span className="text-[1.1rem] font-normal text-muted" aria-hidden="true">
 									›
 								</span>
 							</Link>

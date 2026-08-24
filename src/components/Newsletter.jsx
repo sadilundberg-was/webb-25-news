@@ -2,6 +2,7 @@
 
 import { storyblokEditable } from '@storyblok/react';
 import { IconMail } from './Icons';
+import { Button, Input } from '@/ui';
 
 export default function Newsletter({ blok }) {
 	function handleSubmit(e) {
@@ -9,32 +10,35 @@ export default function Newsletter({ blok }) {
 	}
 
 	return (
-		<section className="newsletter" {...storyblokEditable(blok)}>
-			<div className="newsletter__content">
-				<div className="newsletter__icon">
-					<IconMail />
+		<section
+			className="my-2 mb-10 flex items-center justify-between gap-6 rounded bg-primary-softer px-9 py-7 max-[900px]:flex-col max-[900px]:items-stretch max-[900px]:p-6"
+			{...storyblokEditable(blok)}
+		>
+			<div className="flex min-w-0 items-center gap-[18px]">
+				<div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+					<IconMail className="size-[22px]" />
 				</div>
 				<div>
-					<h2 className="newsletter__title">
+					<h2 className="mb-0.5 text-[1.15rem] font-extrabold">
 						{blok.title || 'Håll dig uppdaterad'}
 					</h2>
-					<p className="newsletter__text">
+					<p className="m-0 text-[0.9rem] text-muted">
 						{blok.description || 'Följ oss för de senaste nyheterna.'}
 					</p>
 				</div>
 			</div>
-			<form className="newsletter__form" onSubmit={handleSubmit}>
-				<input
+			<form
+				className="flex shrink-0 gap-2.5 max-[900px]:flex-col"
+				onSubmit={handleSubmit}
+			>
+				<Input
 					type="email"
 					name="email"
 					required
 					placeholder={blok.placeholder || 'Din e-post'}
-					className="newsletter__input"
 					aria-label={blok.placeholder || 'Din e-post'}
 				/>
-				<button type="submit" className="newsletter__button">
-					{blok.button_text || 'Prenumerera'}
-				</button>
+				<Button type="submit">{blok.button_text || 'Prenumerera'}</Button>
 			</form>
 		</section>
 	);
