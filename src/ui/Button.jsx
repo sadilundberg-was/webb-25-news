@@ -18,7 +18,7 @@ export function Button({
 		<button
 			type={type}
 			className={cn(
-				'inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-sm border px-[22px] py-3 text-[0.9rem] font-bold transition-colors duration-150',
+				'inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-sm border px-7 py-3 text-[0.9rem] font-bold transition-colors duration-150',
 				variants[variant] ?? variants.primary,
 				className,
 			)}

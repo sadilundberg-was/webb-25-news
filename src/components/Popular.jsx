@@ -31,16 +31,16 @@ export default function Popular({ blok }) {
 					return (
 						<li
 							key={item._uid}
-							className="flex min-w-[10rem] flex-1 items-start gap-3 border-b border-border pb-3"
+							className="flex min-w-40 flex-1 items-start gap-3 border-b border-border pb-3"
 							{...storyblokEditable(item)}
 						>
 							<span
 								className={cn(
-									'flex size-9 shrink-0 items-center justify-center rounded-[10px] text-white',
+									'flex size-10 shrink-0 items-center justify-center rounded-[10px] text-white',
 									ICON_BG[icon] ?? ICON_BG.flame,
 								)}
 							>
-								<PopularIcon name={icon} className="size-[18px]" />
+								<PopularIcon name={icon} className="size-4.5" />
 							</span>
 							<p className="m-0 text-[0.9rem] font-semibold leading-[1.4]">
 								<Link href={linkHref(item.link)} className="hover:text-primary">

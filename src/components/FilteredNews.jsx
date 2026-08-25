@@ -2,14 +2,17 @@ import { storyblokEditable } from '@storyblok/react/rsc';
 import ArticleTeaser from './ArticleTeaser';
 import { getFilteredArticles } from '@/lib/queries';
 
-export default async function FilteredNews({ blok }) {
+export default async function FilteredNews({ blok, slug }) {
 	let stories = [];
+	const category = slug;
+
+	const limit = blok.limit?.value || 100;
 
 	try {
 		stories = await getFilteredArticles({
-			category: blok.category,
+			category,
 			q: blok.q,
-			perPage: blok.limit || 100,
+			limit,
 		});
 	} catch {
 		stories = [];

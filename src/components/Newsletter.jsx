@@ -15,9 +15,9 @@ export default function Newsletter({ blok }) {
 			className="my-2 mb-10 flex items-center justify-between gap-6 rounded bg-primary-softer px-9 py-7 max-[900px]:flex-col max-[900px]:items-stretch max-[900px]:p-6"
 			{...storyblokEditable(blok)}
 		>
-			<div className="flex min-w-0 items-center gap-[18px]">
+			<div className="flex min-w-0 items-center gap-4.5">
 				<div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-white">
-					<IconMail className="size-[22px]" />
+					<IconMail className="size-5.5" />
 				</div>
 				<div>
 					<h2 className="mb-0.5 text-[1.15rem] font-extrabold">

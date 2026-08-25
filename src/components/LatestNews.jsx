@@ -5,8 +5,10 @@ import { getLatestArticles } from '@/lib/queries';
 export default async function LatestNews({ blok }) {
 	let stories = [];
 
+	const limit = blok.limit?.value || 4;
+
 	try {
-		stories = await getLatestArticles(blok.limit || 4);
+		stories = await getLatestArticles(limit);
 	} catch {
 		stories = [];
 	}

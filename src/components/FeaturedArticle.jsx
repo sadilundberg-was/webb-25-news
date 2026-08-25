@@ -48,7 +48,7 @@ export default function FeaturedArticle({ blok }) {
 			</div>
 			<div>
 				<CategoryTag category={category} />
-				<h1 className="mb-1 text-[clamp(1.5rem,2.4vw,2rem)] font-extrabold leading-[1.25] tracking-[-0.02em]">
+				<h1 className="mb-1 text-[clamp(1.5rem,2.4vw,2rem)] font-extrabold leading-tight tracking-[-0.02em]">
 					<Link href={href}>{title || story.name}</Link>
 				</h1>
 				<ArticleMeta

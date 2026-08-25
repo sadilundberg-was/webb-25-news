@@ -5,12 +5,12 @@ import { CategoryIcon } from '@/ui/icons';
 import { cn } from '@/lib/cn';
 
 const CATEGORY_ICON_BY_VALUE = {
-	SVERIGE: 'building',
-	VÄRLDEN: 'globe',
-	VARLDEN: 'globe',
-	EKONOMI: 'chart',
-	TEKNIK: 'gear',
-	KULTUR: 'paw',
+	sweden: 'building',
+	world: 'globe',
+	worlds: 'globe',
+	economy: 'chart',
+	tech: 'gear',
+	culture: 'paw',
 };
 
 const ICON_BG = {
