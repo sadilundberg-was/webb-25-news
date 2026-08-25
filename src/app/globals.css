@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
 	--color-bg: #ffffff;
@@ -45,17 +46,4 @@
 	}
 }
 
-/* Rich text from Storyblok — markup has no Tailwind classes */
-@layer components {
-	.prose-article {
-		@apply mt-7 text-[1.05rem] leading-[1.75] text-body;
-	}
 
-	.prose-article p {
-		@apply mb-5;
-	}
-
-	.prose-article h2 {
-		@apply mt-[1.75em] mb-[0.6em] text-[1.4rem] font-extrabold text-text;
-	}
-}

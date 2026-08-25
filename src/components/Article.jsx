@@ -40,7 +40,7 @@ export default function Article({ blok }) {
 				)}
 				{html && (
 					<div
-						className="prose-article"
+						className="prose mt-7 max-w-none"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
 				)}

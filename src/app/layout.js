@@ -5,8 +5,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-	title: 'NYHETER',
-	description: 'Senaste nytt från Sverige och världen',
+	title: 'NEWS',
+	description: 'Latest news from Sweden and the world',
 };
 
 export default async function RootLayout({ children }) {
@@ -23,7 +23,7 @@ export default async function RootLayout({ children }) {
 
 	return (
 		<StoryblokProvider>
-			<html lang="sv">
+			<html lang="en">
 				<body>
 					<div className="flex min-h-screen flex-col">
 						{headerBlok && <Header blok={headerBlok} />}

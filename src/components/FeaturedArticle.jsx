@@ -18,7 +18,7 @@ export default function FeaturedArticle({ blok }) {
 				className="grid grid-cols-[1.15fr_1fr] items-center gap-9 py-9 pb-10 max-[900px]:grid-cols-1 max-[900px]:gap-6 max-[900px]:py-7 max-[900px]:pb-8"
 				{...storyblokEditable(blok)}
 			>
-				<p>Välj en artikel i Storyblok.</p>
+				<p>Select an article in Storyblok.</p>
 			</section>
 		);
 	}

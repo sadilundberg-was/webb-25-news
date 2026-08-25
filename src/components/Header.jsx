@@ -20,14 +20,14 @@ export default function Header({ blok }) {
 					{blok.logo?.filename ? (
 						<img
 							src={blok.logo.filename}
-							alt={blok.logo.alt || 'Logotyp'}
+							alt={blok.logo.alt || 'Logo'}
 							className="block h-9 w-auto"
 						/>
 					) : (
-						'NYHETER'
+						'NEWS'
 					)}
 				</Link>
-				<nav aria-label="Huvudnavigation">
+				<nav aria-label="Main navigation">
 					<ul className="m-0 flex list-none items-center gap-7 p-0 max-sm:flex-wrap max-sm:gap-4">
 						{blok.navigation?.map((navBlok) => (
 							<StoryblokServerComponent blok={navBlok} key={navBlok._uid} />

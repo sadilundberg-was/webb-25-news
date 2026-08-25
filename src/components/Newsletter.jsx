@@ -12,7 +12,7 @@ export default function Newsletter({ blok }) {
 
 	return (
 		<section
-			className="my-2 mb-10 flex items-center justify-between gap-6 rounded bg-primary-softer px-9 py-7 max-[900px]:flex-col max-[900px]:items-stretch max-[900px]:p-6"
+			className="flex items-center justify-between gap-6 rounded bg-primary-softer px-9 py-7 max-[900px]:flex-col max-[900px]:items-stretch max-[900px]:p-6"
 			{...storyblokEditable(blok)}
 		>
 			<div className="flex min-w-0 items-center gap-4.5">
@@ -21,10 +21,10 @@ export default function Newsletter({ blok }) {
 				</div>
 				<div>
 					<h2 className="mb-0.5 text-[1.15rem] font-extrabold">
-						{blok.title || 'Håll dig uppdaterad'}
+						{blok.title || 'Stay updated'}
 					</h2>
 					<p className="m-0 text-[0.9rem] text-muted">
-						{blok.description || 'Följ oss för de senaste nyheterna.'}
+						{blok.description || 'Follow us for the latest news.'}
 					</p>
 				</div>
 			</div>
@@ -36,10 +36,10 @@ export default function Newsletter({ blok }) {
 					type="email"
 					name="email"
 					required
-					placeholder={blok.placeholder || 'Din e-post'}
-					aria-label={blok.placeholder || 'Din e-post'}
+					placeholder={blok.placeholder || 'Your email'}
+					aria-label={blok.placeholder || 'Your email'}
 				/>
-				<Button type="submit">{blok.button_text || 'Prenumerera'}</Button>
+				<Button type="submit">{blok.button_text || 'Subscribe'}</Button>
 			</form>
 		</section>
 	);

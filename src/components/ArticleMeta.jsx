@@ -40,7 +40,7 @@ export default function ArticleMeta({
 			{commentsCount != null && commentsCount !== '' && (
 				<span className="inline-flex items-center gap-1.5">
 					<IconComment className="size-4 shrink-0 opacity-70" />
-					{commentsCount} kommentarer
+					{commentsCount} comments
 				</span>
 			)}
 		</div>

@@ -1,16 +1,17 @@
-import { storyblokEditable } from '@storyblok/react/rsc';
+import { storyblokEditable, renderRichText } from '@storyblok/react/rsc';
 import { IconUser } from '@/ui/icons';
 import { getImageAlt, getImageUrl } from '@/lib/utils';
 
 export default function Author({ blok }) {
 	const imageUrl = getImageUrl(blok.image);
+	const html = blok.bio ? renderRichText(blok.bio) : '';
 
 	return (
 		<main
 			className="mx-auto w-full max-w-site flex-1 px-6 pb-12"
 			{...storyblokEditable(blok)}
 		>
-			<div className="my-10 flex items-start gap-6 roundedpx-9 py-8 max-sm:flex-col max-sm:items-center max-sm:px-6 max-sm:text-center">
+			<div className="my-10 flex items-start gap-6 rounded px-9 py-8 max-sm:flex-col max-sm:items-center max-sm:px-6 max-sm:text-center">
 				{imageUrl ? (
 					<div className="size-24 shrink-0 overflow-hidden rounded-full bg-border">
 						<img
@@ -27,14 +28,15 @@ export default function Author({ blok }) {
 						<IconUser className="size-10" />
 					</div>
 				)}
-				<div className="min-w-0 flex-1">
+				<div className="min-w-0 flex-1 max-sm:text-left">
 					<h1 className="mb-2 text-[clamp(1.75rem,3vw,2.5rem)] font-extrabold leading-[1.2] tracking-[-0.02em]">
 						{blok.name}
 					</h1>
-					{blok.bio && (
-						<p className="m-0 max-w-2xl text-[0.95rem] leading-[1.65] text-muted">
-							{blok.bio}
-						</p>
+					{html && (
+						<div
+						className="prose mt-4 max-w-none"
+							dangerouslySetInnerHTML={{ __html: html }}
+						/>
 					)}
 				</div>
 			</div>

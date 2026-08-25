@@ -5,14 +5,14 @@ export default function Footer({ blok }) {
 
 	return (
 		<footer
-			className="mt-auto border-t border-border bg-footer"
+			className="mt-auto w-full border-t border-border bg-footer"
 			{...storyblokEditable(blok)}
 		>
-			<div className="mx-auto max-w-site px-6 pt-7 pb-9">
+			<div className="mx-auto max-w-site flex justify-center px-6 pt-7 pb-9">
 				{blok.copyright && (
 					<p className="mb-1.5 text-[0.9rem] font-bold">{blok.copyright}</p>
 				)}
-				{blok.description && (
+				{blok.description && ( 
 					<p className="m-0 max-w-xl text-[0.875rem] leading-[1.55] text-muted">
 						{blok.description}
 					</p>

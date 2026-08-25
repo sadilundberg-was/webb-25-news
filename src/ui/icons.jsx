@@ -48,6 +48,15 @@ export function IconMail({ className }) {
 	);
 }
 
+export function IconSearch({ className }) {
+	return (
+		<Svg className={className} fill="none" stroke="currentColor" strokeWidth="2">
+			<circle cx="11" cy="11" r="7" />
+			<path d="m20 20-3.5-3.5" />
+		</Svg>
+	);
+}
+
 export function IconFlame({ className }) {
 	return (
 		<Svg className={className} fill="currentColor">

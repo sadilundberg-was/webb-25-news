@@ -23,7 +23,7 @@ export default function Popular({ blok }) {
 	return (
 		<section {...storyblokEditable(blok)}>
 			<h2 className="mb-4 text-[1.15rem] font-extrabold tracking-[-0.02em]">
-				{blok.title || 'Populärt'}
+				{blok.title || 'Popular'}
 			</h2>
 			<ul className="m-0 flex list-none flex-wrap gap-3.5 p-0">
 				{items.map((item) => {

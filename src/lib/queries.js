@@ -34,7 +34,7 @@ export async function getStory(slug) {
 	return data.story;
 }
 
-export async function getLatestArticles(limit = 4) {
+export async function getLatestArticles(limit = 4, searchQuery) {
 	const storyblokApi = getStoryblokApi();
 	const { data } = await storyblokApi.getStories({
 		version,
@@ -44,13 +44,14 @@ export async function getLatestArticles(limit = 4) {
 		resolve_relations: 'article.author',
 		sort_by: 'content.date:desc',
 		per_page: limit,
+		...(searchQuery && { search_term: searchQuery }),
 	});
 	return data.stories;
 }
 
 export async function getFilteredArticles({
 	category,
-	q,
+	searchQuery,
 	perPage = 100,
 	sortBy = 'content.date:desc',
 } = {}) {
@@ -63,7 +64,7 @@ export async function getFilteredArticles({
 		resolve_relations: 'article.author',
 		sort_by: sortBy,
 		per_page: perPage,
-		...(q && { search_term: q }),
+		...(searchQuery && { search_term: searchQuery }),
 		...(category && { filter_query: { category: { in: category } } }),
 	});
 	return data.stories;

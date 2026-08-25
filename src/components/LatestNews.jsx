@@ -2,13 +2,13 @@ import { storyblokEditable } from '@storyblok/react/rsc';
 import ArticleTeaser from './ArticleTeaser';
 import { getLatestArticles } from '@/lib/queries';
 
-export default async function LatestNews({ blok }) {
+export default async function LatestNews({ blok, searchQuery }) {
 	let stories = [];
 
 	const limit = blok.limit?.value || 4;
 
 	try {
-		stories = await getLatestArticles(limit);
+		stories = await getLatestArticles(limit, searchQuery);
 	} catch {
 		stories = [];
 	}
@@ -16,7 +16,7 @@ export default async function LatestNews({ blok }) {
 	return (
 		<section {...storyblokEditable(blok)}>
 			<h2 className="mb-6 text-[1.35rem] font-extrabold tracking-[-0.02em]">
-				{blok.title || 'Senaste nytt'}
+				{blok.title || 'Latest news'}
 			</h2>
 			<div>
 				{stories.map((story) => (

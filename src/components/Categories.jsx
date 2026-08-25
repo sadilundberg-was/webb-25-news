@@ -34,7 +34,7 @@ export default async function Categories({ blok }) {
 	return (
 		<section {...storyblokEditable(blok)}>
 			<h2 className="mb-4 text-[1.15rem] font-extrabold tracking-[-0.02em]">
-				{blok.title || 'Kategorier'}
+				{blok.title || 'Categories'}
 			</h2>
 			<ul className="m-0 flex list-none flex-wrap gap-3.5 p-0">
 				{entries.map((entry) => {

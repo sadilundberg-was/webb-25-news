@@ -11,6 +11,7 @@ import Categories from '@/components/Categories';
 import Newsletter from '@/components/Newsletter';
 import Article from '@/components/Article';
 import Author from '@/components/Author';
+import Search from "@/components/Search";
 import CategoryPage from '@/components/CategoryPage';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
@@ -33,6 +34,7 @@ export const getStoryblokApi = storyblokInit({
 		newsletter: Newsletter,
 		article: Article,
 		author: Author,
+		search: Search,
 	},
 	apiOptions: {
 		/** Set the correct region for your space. Learn more: https://www.storyblok.com/docs/packages/storyblok-js#example-region-parameter */

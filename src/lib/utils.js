@@ -1,23 +1,23 @@
-const MONTHS_SV = [
-	'januari',
-	'februari',
-	'mars',
-	'april',
-	'maj',
-	'juni',
-	'juli',
-	'augusti',
-	'september',
-	'oktober',
-	'november',
-	'december',
+const MONTHS = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
 ];
 
 export function formatDate(dateStr) {
 	if (!dateStr) return '';
 	const date = new Date(dateStr);
 	if (Number.isNaN(date.getTime())) return dateStr;
-	return `${date.getDate()} ${MONTHS_SV[date.getMonth()]} ${date.getFullYear()}`;
+	return `${date.getDate()} ${MONTHS[date.getMonth()]} ${date.getFullYear()}`;
 }
 
 export function getImageUrl(image) {
