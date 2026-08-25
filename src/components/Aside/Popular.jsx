@@ -31,7 +31,7 @@ export default function Popular({ blok }) {
 					return (
 						<li
 							key={item._uid}
-							className="flex min-w-[10rem] flex-1 items-start gap-3 rounded-sm bg-gray-100 p-3"
+							className="flex min-w-[10rem] flex-1 items-start gap-3 border-b border-border pb-3"
 							{...storyblokEditable(item)}
 						>
 							<span

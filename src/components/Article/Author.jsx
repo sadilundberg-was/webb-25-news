@@ -1,6 +1,5 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 
-/** Author is mainly used as a reference; this renders if opened as its own story. */
 export default function Author({ blok }) {
 	return (
 		<div className="mx-auto max-w-article py-10 pb-16" {...storyblokEditable(blok)}>

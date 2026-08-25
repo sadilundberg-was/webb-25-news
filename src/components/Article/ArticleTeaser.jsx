@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import ArticleMeta, { CategoryTag } from './ArticleMeta';
+import { getAuthorHref, getAuthorName } from '@/lib/utils';
 
 export default function ArticleTeaser({ story }) {
 	const { title, image, category, date, excerpt, author } = story.content || {};
 	const href = `/${story.full_slug}`;
 	const imageUrl = image?.filename;
-	const authorName = author?.content?.name || author?.name || '';
+	const authorName = getAuthorName(author);
+	const authorHref = getAuthorHref(author);
 
 	return (
 		<article className="grid grid-cols-[140px_1fr] gap-5 border-t border-border py-5 first-of-type:border-t-0 first-of-type:pt-0 max-sm:grid-cols-[100px_1fr] max-sm:gap-3.5">
@@ -30,6 +32,7 @@ export default function ArticleTeaser({ story }) {
 				<ArticleMeta
 					date={date || story.first_published_at}
 					authorName={authorName}
+					authorHref={authorHref}
 					className="my-2 gap-3 text-[0.8rem]"
 				/>
 				{excerpt && (

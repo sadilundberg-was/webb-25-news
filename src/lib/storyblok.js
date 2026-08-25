@@ -1,18 +1,17 @@
 import Page from '@/components/Page';
-import Feature from '@/components/Feature';
-import Grid from '@/components/Grid';
-import Teaser from '@/components/Teaser';
 import NavLink from '@/components/NavLink';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FeaturedArticle from '@/components/Article/FeaturedArticle';
 import LatestNews from '@/components/Article/LatestNews';
+import FilteredNews from '@/components/Article/FilteredNews';
 import SplitLayout from '@/components/SplitLayout';
-import Popular from '@/components/Popular';
-import Categories from '@/components/Categories';
+import Popular from '@/components/Aside/Popular';
+import Categories from '@/components/Aside/Categories';
 import Newsletter from '@/components/Newsletter';
 import Article from '@/components/Article/Article';
 import Author from '@/components/Article/Author';
+import CategoryPage from '@/components/CategoryPage';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 export const getStoryblokApi = storyblokInit({
@@ -20,18 +19,17 @@ export const getStoryblokApi = storyblokInit({
 	use: [apiPlugin],
 	components: {
 		page: Page,
-		feature: Feature,
-		grid: Grid,
-		teaser: Teaser,
 		nav_link: NavLink,
 		header: Header,
 		footer: Footer,
 		featured_article: FeaturedArticle,
 		latest_news: LatestNews,
+		filtered_news: FilteredNews,
 		split_layout: SplitLayout,
 		popular: Popular,
 		popular_item: () => null,
 		categories: Categories,
+		'category-page': CategoryPage,
 		newsletter: Newsletter,
 		article: Article,
 		author: Author,

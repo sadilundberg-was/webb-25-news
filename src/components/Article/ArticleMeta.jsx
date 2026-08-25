@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { IconCalendar, IconComment, IconUser } from '@/ui/icons';
 import { Tag } from '@/ui/tag';
@@ -7,6 +8,7 @@ import { cn } from '@/lib/cn';
 export default function ArticleMeta({
 	date,
 	authorName,
+	authorHref,
 	commentsCount,
 	className = '',
 }) {
@@ -26,7 +28,13 @@ export default function ArticleMeta({
 			{authorName && (
 				<span className="inline-flex items-center gap-1.5">
 					<IconUser className="size-4 shrink-0 opacity-70" />
-					{authorName}
+					{authorHref ? (
+						<Link href={authorHref} className="hover:text-primary">
+							{authorName}
+						</Link>
+					) : (
+						authorName
+					)}
 				</span>
 			)}
 			{commentsCount != null && commentsCount !== '' && (
@@ -46,5 +54,4 @@ export function CategoryTag({ category, editable }) {
 	);
 }
 
-/** Shared editable wrapper helper when needed */
 export { storyblokEditable };

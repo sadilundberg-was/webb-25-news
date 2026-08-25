@@ -1,10 +1,11 @@
 import { storyblokEditable, renderRichText } from '@storyblok/react/rsc';
 import ArticleMeta, { CategoryTag } from './ArticleMeta';
-import { getAuthorName, getImageAlt, getImageUrl } from '@/lib/utils';
+import { getAuthorHref, getAuthorName, getImageAlt, getImageUrl } from '@/lib/utils';
 
 export default function Article({ blok }) {
 	const imageUrl = getImageUrl(blok.image);
 	const authorName = getAuthorName(blok.author);
+	const authorHref = getAuthorHref(blok.author);
 	const html = blok.body ? renderRichText(blok.body) : '';
 
 	return (
@@ -29,6 +30,7 @@ export default function Article({ blok }) {
 				<ArticleMeta
 					date={blok.date}
 					authorName={authorName}
+					authorHref={authorHref}
 					commentsCount={blok.comments_count}
 				/>
 				{blok.excerpt && (

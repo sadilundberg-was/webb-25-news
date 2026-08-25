@@ -50,19 +50,8 @@ export function getAuthorName(authorRef) {
 	return author.content?.name || author.name || '';
 }
 
-export function getArticleFields(articleRef) {
-	const story = resolveStory(articleRef);
-	if (!story) return null;
-	const content = story.content || {};
-	return {
-		slug: story.full_slug || story.slug || '#',
-		title: content.title || story.name || '',
-		image: content.image,
-		category: content.category || '',
-		date: content.date || story.first_published_at,
-		authorName: getAuthorName(content.author),
-		excerpt: content.excerpt || '',
-		commentsCount: content.comments_count,
-		body: content.body,
-	};
+export function getAuthorHref(authorRef) {
+	const author = resolveStory(authorRef);
+	if (!author?.full_slug) return undefined;
+	return `/${author.full_slug}`;
 }

@@ -22,7 +22,7 @@ const ICON_BG = {
 };
 
 export default async function Categories({ blok }) {
-	const datasource = blok.datasource || 'categories';
+	const datasource = blok.datasource || 'category-options';
 
 	let entries = [];
 	try {
@@ -42,13 +42,13 @@ export default async function Categories({ blok }) {
 						CATEGORY_ICON_BY_VALUE[entry.value] ||
 						CATEGORY_ICON_BY_VALUE[entry.value?.toUpperCase()] ||
 						'building';
-					const href = `/kategori/${(entry.value || '').toLowerCase()}`;
+					const href = `/${(entry.value || '').toLowerCase()}`;
 
 					return (
-						<li key={entry.id || entry.value} className="min-w-[10rem] flex-1">
+						<li key={entry.id || entry.value} className="min-w-40 flex-1">
 							<Link
 								href={href}
-								className="flex items-center gap-3 rounded-sm bg-gray-100 p-3 text-[0.95rem] font-semibold transition-colors duration-150 hover:text-primary"
+								className="flex items-center gap-3 border-b border-border pb-3 text-[0.95rem] font-semibold transition-colors duration-150 hover:text-primary"
 							>
 								<span
 									className={cn(

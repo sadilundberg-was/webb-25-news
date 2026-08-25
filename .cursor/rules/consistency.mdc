@@ -1,0 +1,19 @@
+---
+description: Stay consistent; ask for a preferred pattern when none is clear
+alwaysApply: true
+---
+
+# Consistency first
+
+- Match existing patterns in this repo. Do not invent a second way to do the same thing.
+- If a helper, naming style, or structure already exists for something, reuse it everywhere that logic appears.
+- When the user points at reference code, treat that as the source of truth and update all related call sites in one pass.
+- Before finishing, check related files for the old/inconsistent pattern and align them.
+
+# When consistency is unclear — ask
+
+If there is **no clear standard** in the codebase, or it is **hard to stay consistent** (multiple existing styles, ambiguous naming, unclear where logic should live), **ask the user** before changing code:
+
+> I don't see a clear pattern for this. Is there a reference or approach you want me to follow?
+
+Do not guess and create a new parallel pattern. Only ask when the standard is genuinely unclear — not before every routine change that already has an obvious match in the repo.

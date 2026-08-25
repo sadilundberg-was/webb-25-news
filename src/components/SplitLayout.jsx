@@ -14,7 +14,7 @@ export default function SplitLayout({ blok }) {
 					<StoryblokServerComponent blok={nested} key={nested._uid} />
 				))}
 			</div>
-			<aside className="flex min-w-0 flex-col gap-9">
+			<aside className="flex min-w-0 flex-col gap-9 lg:border-l lg:border-border lg:pl-9">
 				{blok.aside?.map((nested) => (
 					<StoryblokServerComponent blok={nested} key={nested._uid} />
 				))}
