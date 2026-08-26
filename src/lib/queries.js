@@ -16,6 +16,15 @@ export async function getConfigStory() {
 	return data.story;
 }
 
+export async function getCategories() {
+	const storyblokApi = getStoryblokApi();
+	const { data } = await storyblokApi.get('cdn/stories', {
+		version,
+		content_type: 'category',
+	});
+	return data.stories;
+}
+
 export async function getCategoryPage() {
 	const storyblokApi = getStoryblokApi();
 	const { data } = await storyblokApi.get('cdn/stories/category-page', {
